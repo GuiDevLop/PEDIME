@@ -7,6 +7,7 @@ package Modelo;
  */
 import com.mysql.jdbc.Connection;
 import java.awt.HeadlessException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,13 +51,15 @@ public class Prod extends HttpServlet {
             String Desc = request.getParameter("des");
             float Prec = Float.parseFloat(request.getParameter("pre"));
             boolean Disp = Boolean.parseBoolean(request.getParameter("dis"));
+            
+            String Imag = request.getParameter("foto1");
+            File Imag1 = new File(Imag);
+            String Ruta1 = Imag1.getAbsolutePath();
+            
             int Cate = Integer.parseInt(request.getParameter("cat"));
             int Area = Integer.parseInt(request.getParameter("are"));
 
-            //FileInputStream imag1 = null; // input stream of the upload file
-            //Part imag1Part = request.getPart("foto1");
-            //imag1 = imag1Part.getInputStream();
-                    
+              
             try {
                 String url = "jdbc:mysql://localhost:3306/menu_electronico";
                 String username = "root";
@@ -76,7 +79,7 @@ public class Prod extends HttpServlet {
                 ps.setBoolean(4, Disp);
                 ps.setInt(5, Cate);
                 ps.setInt(6, Area);
-                ps.setBlob(7, imag1);
+                ps.setString(7, Ruta1);
 
                 int res = ps.executeUpdate();
                 con.close();
