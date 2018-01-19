@@ -1,10 +1,9 @@
-package Modelo;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Modelo;
 
 import com.mysql.jdbc.Connection;
 import java.io.IOException;
@@ -20,14 +19,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author lepoimel
  */
-@WebServlet(urlPatterns = {"/ArO"})
-public class ArO extends HttpServlet {
+@WebServlet(name = "Categ", urlPatterns = {"/Categ"})
+public class Categ extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,11 +35,7 @@ public class ArO extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * @throws java.lang.ClassNotFoundException
-     * @throws java.sql.SQLException
      */
-    
-        
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
@@ -49,10 +43,8 @@ public class ArO extends HttpServlet {
             
             //Inicio agregado de nico
             
-            String area=request.getParameter("area");
+            String Cate=request.getParameter("categ");
             
-            
-           
             String url = "jdbc:mysql://localhost:3306/menu_electronico";
             String username = "root";
             String password = "NicoLepo72";
@@ -60,31 +52,21 @@ public class ArO extends HttpServlet {
             PreparedStatement ps;
             ResultSet rs;
 
-    
             Connection con = null;
             Class.forName("com.mysql.jdbc.Driver");
             con = (Connection) DriverManager.getConnection(url, username, password);
             
-            ps = con.prepareStatement("INSERT INTO areaoperativa (Area) VALUES(?)");
-            ps.setString(1, area);
+            ps = con.prepareStatement("INSERT INTO categoria (Nombre) VALUES(?)");
+            ps.setString(1, Cate);
             
             int res = ps.executeUpdate();
 
             con.close();
             
             //fin agregado de nico
-
-        }
-            
-            
-            
-            
             
         }
-        
-        
-                
-    
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -101,9 +83,9 @@ public class ArO extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ArO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Categ.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ArO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Categ.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -116,14 +98,14 @@ public class ArO extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ArO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Categ.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ArO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Categ.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -135,6 +117,6 @@ public class ArO extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
+
 }
-// </editor-fold>

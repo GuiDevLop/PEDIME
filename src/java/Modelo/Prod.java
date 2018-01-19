@@ -63,7 +63,7 @@ public class Prod extends HttpServlet {
             try {
                 String url = "jdbc:mysql://localhost:3306/menu_electronico";
                 String username = "root";
-                String password = "rootpass";
+                String password = "NicoLepo72";
 
                 PreparedStatement ps;
                 ResultSet rs;
