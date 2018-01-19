@@ -43,7 +43,7 @@ public class Categ extends HttpServlet {
             
             //Inicio agregado de nico
             
-            String Cate=request.getParameter("categ");
+            String Cate = request.getParameter("categ");
             
             String url = "jdbc:mysql://localhost:3306/menu_electronico";
             String username = "root";
