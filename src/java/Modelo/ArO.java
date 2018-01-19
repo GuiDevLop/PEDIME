@@ -55,7 +55,7 @@ public class ArO extends HttpServlet {
            
             String url = "jdbc:mysql://localhost:3306/menu_electronico";
             String username = "root";
-            String password = "NicoLepo72";
+            String password = "rootpass";
     
             PreparedStatement ps;
             ResultSet rs;

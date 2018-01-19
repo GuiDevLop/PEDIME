@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Admin</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+    </head>
+
+    <body>
+
+        <!-- Content -->
+        <div class="top-content">
+
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <center><h1>PEDIME</h1></center>
+                            <h1><strong>ADMINISTRA</strong> tu restaurante.</h1>
+                            <div class="description">
+                                <p>
+                                    ¡Haciendo click en el area que quieras administras aparecerá la ventana correspondiente!
+                                </p>
+                            </div>
+                            <div class="top-big-link">
+                                <a class="btn btn-link-1 launch-modal" href="#" data-modal-id="cat">CATEGORÍAS</a>
+                                <a class="btn btn-link-1 launch-modal" href="#" data-modal-id="mesas">MESAS</a>
+                                <a class="btn btn-link-1 launch-modal" href="#" data-modal-id="areas">AREAS</a>
+                                <a class="btn btn-link-1 launch-modal" href="#" data-modal-id="camareros">CAMAREROS</a>
+                                <a class="btn btn-link-1 launch-modal" href="#" data-modal-id="prod">PRODUCTOS</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- MODAL AREA -->
+        <div class="modal fade" id="areas" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                        <h3 class="modal-title" id="modal-register-label">AREA ADMINISTRATIVA</h3>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <form action="ArO" method="post" class="registration-form">
+                            <label class="sr-only" for="form-first-name">Area Operativa</label>
+                            <input type="text" name="area" placeholder="Area" class="form-first-name form-control" id="Area">
+                            <button type="submit" class="btn">Guardar</button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- MODAL PRODUCTO -->
+        <div class="modal fade" id="prod" tabindex="-1" role="dialog" aria-labelledby="modal-register-label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                        </button>
+                        <h3 class="modal-title" id="modal-register-label">AREA ADMINISTRATIVA</h3>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <form action="Prod" method="post" class="registration-form">
+                            <label class="sr-only" for="form-first-name">Nombre</label>
+                            <input type="text" name="nom" placeholder="Nombre" class="form-first-name form-control" id="Nombre">
+                            
+                            <label class="sr-only" for="form-first-name">Descripcion</label>
+                            <input type="text" name="des" placeholder="Descripcion" class="form-first-name form-control" id="Descripcion">
+                            
+                            <label class="sr-only" for="form-first-name">Precio</label>
+                            <input type="text" name="pre" placeholder="Precio" class="form-first-name form-control" id="Precio">
+                            
+                            <label class="sr-only" for="form-first-name">Disponible</label>
+                            <input type="checkbox" name="dis" title="Disponible" class="form-first-name form-control" id="Disponible">
+                            
+                            <label class="sr-only" for="form-first-name">Foto</label>
+                            <input type="file" name="foto1" placeholder="Elegir Foto" class="form-first-name form-control" id="Foto">
+                            
+                            <label class="sr-only" for="form-first-name">Categoría</label>
+                            <input type="text" name="cat" placeholder="Categoria" class="form-first-name form-control" id="Categoria">
+                            
+                            <label class="sr-only" for="form-first-name">Sector</label>
+                            <input type="text" name="are" placeholder="Sector" class="form-first-name form-control" id="Sector">
+                            
+                            <button type="submit" class="btn">Guardar</button>
+                        </form>
+            
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+    </body>
+
+</html>
