@@ -6,6 +6,7 @@ package Modelo;
  * and open the template in the editor.
  */
 
+import static Modelo.conectar.Conecto;
 import com.mysql.jdbc.Connection;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -45,25 +46,18 @@ public class ArO extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
             
             //Inicio agregado de nico
             
             String area=request.getParameter("area");
+         
+            Connection con = null;
+            con = Conecto();
             
-            
-           
-            String url = "jdbc:mysql://localhost:3306/menu_electronico";
-            String username = "root";
-            String password = "NicoLepo72";
-    
             PreparedStatement ps;
             ResultSet rs;
-
-    
-            Connection con = null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con = (Connection) DriverManager.getConnection(url, username, password);
             
             ps = con.prepareStatement("INSERT INTO areaoperativa (Area) VALUES(?)");
             ps.setString(1, area);

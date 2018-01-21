@@ -5,6 +5,7 @@ package Modelo;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import static Modelo.conectar.Conecto;
 import com.mysql.jdbc.Connection;
 import java.awt.HeadlessException;
 import java.io.File;
@@ -51,49 +52,41 @@ public class Prod extends HttpServlet {
             String Desc = request.getParameter("des");
             float Prec = Float.parseFloat(request.getParameter("pre"));
             boolean Disp = Boolean.parseBoolean(request.getParameter("dis"));
-            
+
             String Imag = request.getParameter("foto1");
             File Imag1 = new File(Imag);
             String Ruta1 = Imag1.getAbsolutePath();
-            
+
             int Cate = Integer.parseInt(request.getParameter("cat"));
             int Area = Integer.parseInt(request.getParameter("are"));
 
-              
-            try {
-                String url = "jdbc:mysql://localhost:3306/menu_electronico";
-                String username = "root";
-                String password = "NicoLepo72";
+            Connection con = null;
+            con = Conecto();
 
-                PreparedStatement ps;
-                ResultSet rs;
+            PreparedStatement ps;
+            ResultSet rs;
 
-                Connection con = null;
-                Class.forName("com.mysql.jdbc.Driver");
-                con = (Connection) DriverManager.getConnection(url, username, password);
+            ps = con.prepareStatement("INSERT INTO productos (Nombre, Descripcion, Precio, Disponible, idCategoria, idSector, Imagen1) VALUES(?,?,?,?,?,?,?)");
+            ps.setString(1, Nom);
+            ps.setString(2, Desc);
+            ps.setFloat(3, Prec);
+            ps.setBoolean(4, Disp);
+            ps.setInt(5, Cate);
+            ps.setInt(6, Area);
+            ps.setString(7, Ruta1);
 
-                ps = con.prepareStatement("INSERT INTO productos (Nombre, Descripcion, Precio, Disponible, idCategoria, idSector, Imagen1) VALUES(?,?,?,?,?,?,?)");
-                ps.setString(1, Nom);
-                ps.setString(2, Desc);
-                ps.setFloat(3, Prec);
-                ps.setBoolean(4, Disp);
-                ps.setInt(5, Cate);
-                ps.setInt(6, Area);
-                ps.setString(7, Ruta1);
+            int res = ps.executeUpdate();
 
-                int res = ps.executeUpdate();
-                con.close();
-            } catch (HeadlessException | ClassNotFoundException | SQLException e) {
-                System.out.println(e);
-            }
+            con.close();
 
-            
+        } catch (HeadlessException | SQLException e) {
+            System.out.println(e);
+        }
 
-            //fin nico
-        }   
+        //fin nico
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -107,10 +100,14 @@ public class Prod extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
+
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Prod.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Prod.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
         } catch (SQLException ex) {
-            Logger.getLogger(Prod.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Prod.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -127,10 +124,14 @@ public class Prod extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
+
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Prod.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Prod.class
+                    .getName()).log(Level.SEVERE, null, ex);
+
         } catch (SQLException ex) {
-            Logger.getLogger(Prod.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Prod.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
     }
 

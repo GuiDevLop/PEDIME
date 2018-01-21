@@ -19,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import static Modelo.conectar.Conecto;
 
 /**
  *
@@ -39,32 +40,27 @@ public class Categ extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
-            
+
             //Inicio agregado de nico
             
             String Cate = request.getParameter("categ");
             
-            String url = "jdbc:mysql://localhost:3306/menu_electronico";
-            String username = "root";
-            String password = "NicoLepo72";
-    
+            Connection con = null;
+            con = Conecto();
+
             PreparedStatement ps;
             ResultSet rs;
-
-            Connection con = null;
-            Class.forName("com.mysql.jdbc.Driver");
-            con = (Connection) DriverManager.getConnection(url, username, password);
             
             ps = con.prepareStatement("INSERT INTO categoria (Nombre) VALUES(?)");
             ps.setString(1, Cate);
-            
+
             int res = ps.executeUpdate();
 
             con.close();
-            
+
             //fin agregado de nico
-            
         }
     }
 
