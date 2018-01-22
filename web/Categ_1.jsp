@@ -1,3 +1,4 @@
+<%@page import="javax.servlet.annotation.WebServlet"%>
 <!-- Los import -->
 <%@ page language="java" %>
 <%@ page import = "java.sql.Connection"%>
@@ -7,12 +8,19 @@
 <html>
 <body>
 <h1>Consulta a CATEGORIAS</h1>
+                        <form action="Categ" method="post" class="registration-form">
+                            <label class="sr-only" for="form-first-name">Categoría</label>
+                            <input type="text" name="categ" placeholder="Categoria" class="form-first-name form-control" id="Categoria">
+                            <button type="submit" class="btn">Guardar</button>
+                        </form>
 <%
+    
+    
 try
 {
    // Conexion con bd
    Class.forName("com.mysql.jdbc.Driver");
-   Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/menu_electronico", "root", "rootpass");
+   Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/menu_electronico", "root", "dado1314");
    if (!conexion.isClosed())
    {
       // La consulta
@@ -44,5 +52,7 @@ catch (Exception e)
    e.printStackTrace();
 }
 %>
+
+
 </body>
 </html>

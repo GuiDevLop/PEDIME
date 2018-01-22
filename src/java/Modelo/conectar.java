@@ -9,7 +9,7 @@ public class conectar {
     
     public static final String url = "jdbc:mysql://localhost:3306/menu_electronico";
     public static final String username = "root";
-    public static final String password = "rootpass";
+    public static final String password = "dado1314";
     
     public static Connection Conecto(){
         Connection con = null;
