@@ -30,9 +30,9 @@
        String id = rs.getString(1);
        String nombre = rs.getString(2);
        %>
-       <!--<tr><td><%= id %></td>
-        <td><%= nombre %></td>-->
-        <td> <input type="text" name="nombre" value="<%= nombre %>"/><a href="ModiAro.jsp?id=<%= id %> nombre=<%= nombre %>">
+       <tr><td><%= id %></td>
+        <td><%= nombre %></td>
+        <td> <a href='ModiAro.jsp?=<%= id %>'>
               <input type="submit" value="Modificar"/></a>
             <a href='/ElimAro.jsp?id=<%= id %>'>
               <input type="submit" value="Eliminar"/></a></td></tr>
