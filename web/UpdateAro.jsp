@@ -14,8 +14,9 @@
             PreparedStatement ps = null;
             ResultSet rs = null;
             String Nom = request.getParameter("area");
-            int id = Integer.parseInt(request.getParameter("ids"));
-            ps = con.prepareStatement("UPDATE areaoperativa SET Area=? where idArea=" + id );
+            int id = Integer.parseInt(request.getParameter("idearea"));
+            String sql = "UPDATE areaoperativa SET Area=? where idArea=1";
+            ps = con.prepareStatement(sql);
             ps.setString(1, Nom);
             int res = ps.executeUpdate();
 

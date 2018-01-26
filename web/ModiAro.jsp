@@ -3,7 +3,7 @@
 <%@page import="java.sql.*" %>
 <!DOCTYPE html>
     <%
-        String ids = request.getParameter("id");
+        String ids = request.getParameter(<%= id %>);
         String url = "jdbc:mysql://localhost:3306/menu_electronico";
         String username = "root";
         String password = "NicoLepo72";
@@ -15,7 +15,7 @@
             PreparedStatement ps = null;
             ResultSet rs = null;
             
-            String sql="select * from areaoperativa where idArea='" + ids + "'";
+            String sql= "select * from areaoperativa where idArea="+ids;
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             %>
@@ -28,18 +28,18 @@
                     <tbody>
                         <h1>AREA OPERATIVA</h1>
                             <% while (rs.next()) {
-                                String id = String.valueOf(rs.getInt(1));
+                                String id = rs.getString(1);
                                 String nombre = rs.getString(2);
                             %>
-                            <h1>AREA OPERATIVA</h1>
                             <tr><td><%= id %></td>
                                 <td><%= nombre %></td>
-                                <td>
-                            <% } %>
+                                <% } %>
+                                
                             <form action="UpdateAro.jsp" method="post">
+                                <imput name="idarea" value=id>
                                 Nuevo Nombre <input type="text" name="area">
                                 <input type="submit" value="Confirmar">
-                            </form></td></tr>
+                            </form></tr>
                     </tbody>
                 </table>
             </html>
