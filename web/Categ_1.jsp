@@ -8,10 +8,10 @@
 <html>
 <body>
 <h1>Consulta a CATEGORIAS</h1>
-                        <form action="Categ" method="post" class="registration-form">
+                            <form action="Categ_2.jsp">
                             <label class="sr-only" for="form-first-name">Categoría</label>
-                            <input type="text" name="categ" placeholder="Categoria" class="form-first-name form-control" id="Categoria">
-                            <button type="submit" class="btn">Guardar</button>
+                            <input type="text" name="categoria" >
+                            <input type="submit" value="Enviar" >
                         </form>
 <%
     
@@ -20,7 +20,7 @@ try
 {
    // Conexion con bd
    Class.forName("com.mysql.jdbc.Driver");
-   Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/menu_electronico", "root", "dado1314");
+   Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/menu_electronico", "root", "NicoLepo72");
    if (!conexion.isClosed())
    {
       // La consulta

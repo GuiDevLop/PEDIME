@@ -1,9 +1,16 @@
 
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="javax.servlet.annotation.WebServlet"%>
+<%@page import="java.lang.String"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.sql.*" %>
+<%@ page language="java" %>
+<%@ page import = "java.sql.Connection"%>
+<%@ page import = "java.sql.DriverManager"%> 
+<%@ page import = "java.sql.ResultSet"%> 
+<%@ page import = "java.sql.Statement"%> 
 <!DOCTYPE html>
     <%
-        String ids = request.getParameter(<%= id %>);
+       <% int ide = request.getParameter(<%= id %>); %>
         String url = "jdbc:mysql://localhost:3306/menu_electronico";
         String username = "root";
         String password = "NicoLepo72";

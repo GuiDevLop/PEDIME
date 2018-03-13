@@ -32,15 +32,20 @@
        %>
        <tr><td><%= id %></td>
         <td><%= nombre %></td>
-        <td> <a href='ModiAro.jsp?=<%= id %>'>
-              <input type="submit" value="Modificar"/></a>
-            <a href='/ElimAro.jsp?id=<%= id %>'>
-              <input type="submit" value="Eliminar"/></a></td></tr>
+        <td> <form action="ModiAro.jsp">
+              <input type="text" value="<%= id %>">
+              <input type="submit" value="Modificar" >
+            <form action="ElimAro.jsp">
+              <input type="text" value="<%= id %>">
+              <input type="submit" value="Eliminar" >
+              </td></tr>
     <% } %>
     </tbody>
     <tfoot>
-    <tr><td><a href='/AgreAro.jsp'>
-        <input type="submit" name="action" value="Agregar"/></a>
+    <tr><td><form action="AgreAro.jsp">
+              <input type="text" value="Area">
+              <input type="submit" value="Agregar" >
+            
     </td>
     </tr>
     </tfoot>
